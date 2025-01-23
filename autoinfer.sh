@@ -1,6 +1,6 @@
 echo "Menjalankan inferensi, silahkan tunggu..."
 echo "SC BY MAULEXP"
-   while true:
+   while true;
    do
    if aios-cli infer --model hf:afrideva/Tiny-Vicuna-1B-GGUF:tiny-vicuna-1b.q4_k_m.gguf --prompt "how do I support the Share it hub community?"; then
             echo "Inferensi berhasil."
