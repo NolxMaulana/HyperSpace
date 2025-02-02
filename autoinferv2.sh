@@ -1,5 +1,5 @@
 echo "SC BY MAULEXP"
-model="hf:afrideva/Tiny-Vicuna-1B-GGUF:tiny-vicuna-1b.q4_k_m.gguf"
+model="hf:bartowski/Qwen2-0.5B-Instruct-Q8_0-GUFF:Qwen2-0.5B-Instruct-Q8_0.gguf"
 # Membaca file chat.txt
 while read -r line; do
   # Menjalankan perintah aios-cli infer untuk setiap argument
