@@ -1,0 +1,592 @@
+╭───────────────────────┬─────────────────────────────────────────────────────────────────┬────────┬─────────────╮
+│ repo                  │ file                                                            │ params │ size        │
+├───────────────────────┼─────────────────────────────────────────────────────────────────┼────────┼─────────────┤
+│ second-state          │ Qwen1.5-1.8B-Chat-Q4_K_M.gguf                                   │ 8B     │ 1217752864  │
+│ MaziyarPanahi         │ phi-2.Q4_K_M.gguf                                               │        │ 1737636384  │
+│ afrideva              │ phi-2-uncensored.q4_k_m.gguf                                    │        │ 1789239136  │
+│ jpodivin              │ ggml-model-Q4_K_S.gguf                                          │ 8B     │ 2015155264  │
+│ Aryanne               │ q4_1-gguf-mamba-gpt-3B_v4.gguf                                  │ 3B     │ 2187668096  │
+│ microsoft             │ Phi-3-mini-4k-instruct-q4.gguf                                  │        │ 2393231072  │
+│ bartowski             │ Qwen2.5-14B-Instruct-Q8_0.gguf                                  │ 14B    │ 15701598336 │
+│ second-state          │ Qwen1.5-4B-Chat-Q4_K_M.gguf                                     │ 4B     │ 2455115808  │
+│ Qwen                  │ qwen1_5-4b-chat-q4_k_m.gguf                                     │ 4B     │ 2455115872  │
+│ QuantFactory          │ dolphin-2.8-mistral-7b-v02.Q2_K.gguf                            │ 7B     │ 2719251712  │
+│ second-state          │ Yi-6B-Chat-Q4_K_M.gguf                                          │ 6B     │ 3673968192  │
+│ morph-labs            │ ggml-model-Q4_0.gguf                                            │ 7B     │ 3825903776  │
+│ rozek                 │ LLaMA-2-7B-32K-Instruct-Q4_K_M.gguf                             │ 7B     │ 4081004128  │
+│ rozek                 │ LLaMA-2-7B-32K-Q4_K_M.gguf                                      │ 7B     │ 4081004128  │
+│ mmnga                 │ aibuncho-japanese-novel-gpt-j-6b-q4_K_M.gguf                    │ 6B     │ 3703154688  │
+│ TheBloke              │ guanaco-7b-uncensored.Q4_K_M.gguf                               │ 7B     │ 4081004224  │
+│ TheBloke              │ llama-2-coder-7b.Q4_K_M.gguf                                    │ 7B     │ 4081004224  │
+│ TheBloke              │ pygmalion-2-7b.Q4_K_M.gguf                                      │ 7B     │ 4081004224  │
+│ MaziyarPanahi         │ Llama-2-7b-chat-hf.Q4_K_M.gguf                                  │ 7B     │ 4081005152  │
+│ second-state          │ Llama-2-7b-chat-hf-Q4_K_M.gguf                                  │ 7B     │ 4081005152  │
+│ TheBloke              │ codellama-7b.Q4_K_M.gguf                                        │ 7B     │ 4081095360  │
+│ Josephgflowers        │ tinyllama-616M-dpo-1-unsloth.F16.gguf                           │        │ 1231947008  │
+│ second-state          │ gemma-2b-it-Q4_K_M.gguf                                         │ 2B     │ 1495095008  │
+│ bartowski             │ gemma-1.1-2b-it-Q4_K_M.gguf                                     │ 2B     │ 1630263008  │
+│ lmstudio-community    │ gemma-1.1-2b-it-Q4_K_M.gguf                                     │ 2B     │ 1630263008  │
+│ MaziyarPanahi         │ gemma-2b-it.Q4_K_M.gguf                                         │ 2B     │ 1630263040  │
+│ bartowski             │ Meta-Llama-3.1-8B-Instruct-Q4_K_M.gguf                          │ 8B     │ 4920739232  │
+│ TheBloke              │ llama-2-7b-chat.Q4_K_M.gguf                                     │ 7B     │ 4081004224  │
+│ acon96                │ Home-3B-v3.q4_k_m.gguf                                          │ 3B     │ 1708595648  │
+│ bartowski             │ MN-12B-Lyra-v4-Q8_0.gguf                                        │ 12B    │ 13022372576 │
+│ bartowski             │ Theia-21B-v2-Q4_K_M.gguf                                        │ 21B    │ 12362944032 │
+│ bartowski             │ Theia-21B-v2-Q8_0.gguf                                          │ 21B    │ 21713710016 │
+│ bartowski             │ Mistral-Nemo-12B-ArliAI-RPMax-v1.1-Q4_K_M.gguf                  │ 12B    │ 7477207808  │
+│ TheBloke              │ llama-2-7b-chat.Q8_0.gguf                                       │ 7B     │ 7161089728  │
+│ TheBloke              │ mistral-7b-instruct-v0.1.Q4_K_M.gguf                            │ 7B     │ 4368438944  │
+│ TheBloke              │ mistral-7b-instruct-v0.1.Q8_0.gguf                              │ 7B     │ 7695857312  │
+│ TheBloke              │ mistral-7b-instruct-v0.2.Q4_K_M.gguf                            │ 7B     │ 4368439584  │
+│ TheBloke              │ mistral-7b-instruct-v0.2.Q8_0.gguf                              │ 7B     │ 7695857952  │
+│ QuantFactory          │ Meta-Llama-3-8B-Instruct.Q4_K_M.gguf                            │ 8B     │ 4920734272  │
+│ QuantFactory          │ Meta-Llama-3-8B-Instruct.Q8_0.gguf                              │ 8B     │ 8540770880  │
+│ teddylee777           │ Llama-3-Open-Ko-8B-Q4_K_M.gguf                                  │ 8B     │ 4920733920  │
+│ bartowski             │ Qwen2-0.5B-Instruct-Q8_0.gguf                                   │ 0.5B   │ 531065536   │
+│ MaziyarPanahi         │ sqlcoder-7b-2.Q4_K_M.gguf                                       │ 7B     │ 4081095392  │
+│ lmstudio-community    │ wavecoder-ultra-6.7b-Q4_K_M.gguf                                │ 7B     │ 4081689760  │
+│ TheBloke              │ magicoder-s-ds-6.7b.Q4_K_M.gguf                                 │ 7B     │ 4082886528  │
+│ TheBloke              │ mistral-7b-instruct-v0.1.Q4_K_S.gguf                            │ 7B     │ 4140373664  │
+│ Ttimofeyka            │ MistralRP-Noromaid-NSFW-7B-Q4_0.gguf                            │ 7B     │ 4140373696  │
+│ jpodivin              │ ggml-model-Q4_K_S.gguf                                          │ 7B     │ 4140374464  │
+│ sayhan                │ trendyol-llm-7b-base-v0.1.Q4_K_M.gguf                           │ 7B     │ 4150533024  │
+│ nopperl               │ OLMo-7B.Q4_K_M.gguf                                             │ 7B     │ 4184654560  │
+│ nopperl               │ OLMo-1.7-7B.Q4_K_M.gguf                                         │ 7B     │ 4184654656  │
+│ hfl                   │ ggml-model-q4_k.gguf                                            │ 7B     │ 4213460512  │
+│ MaziyarPanahi         │ neural-chat-7b-v3-1.Q4_K_M.gguf                                 │ 7B     │ 4368438912  │
+│ QuantFactory          │ gemma-2-Ifable-9B.Q4_K_M.gguf                                   │ 9B     │ 5761057568  │
+│ QuantFactory          │ gemma-2-Ifable-9B.Q8_0.gguf                                     │ 9B     │ 9827148576  │
+│ KatyTheCutie          │ LemonadeRP-4.5.3.Q4_K_M.gguf                                    │        │ 4368438976  │
+│ MaziyarPanahi         │ Kunoichi-7B.Q4_K_M.gguf                                         │ 7B     │ 4368438976  │
+│ MaziyarPanahi         │ distilabeled-Marcoro14-7B-slerp.Q4_K_M.gguf                     │ 7B     │ 4368438976  │
+│ MaziyarPanahi         │ mindy-7b-v2.Q4_K_M.gguf                                         │ 7B     │ 4368438976  │
+│ MaziyarPanahi         │ mistral-ft-optimized-1227.Q4_K_M.gguf                           │        │ 4368438976  │
+│ TFMC                  │ japanese-starling-chatv-7b.Q4_K_M.gguf                          │ 7B     │ 4368438976  │
+│ bartowski             │ Qwen2.5-3B-Instruct-Q4_K_M.gguf                                 │ 3B     │ 1929903264  │
+│ bartowski             │ WizardLM-2-7B-Q4_K_M.gguf                                       │ 7B     │ 4368438976  │
+│ lmstudio-community    │ WizardLM-2-7B-Q4_K_M.gguf                                       │ 7B     │ 4368438976  │
+│ MaziyarPanahi         │ WizardLM-2-7B.Q4_K_M.gguf                                       │ 7B     │ 4368439008  │
+│ MaziyarPanahi         │ Sensei-7B-V1.Q4_K_M.gguf                                        │ 7B     │ 4368439040  │
+│ s3nh                  │ utena-7b-nsfw-v2.Q4_K_M.gguf                                    │ 7B     │ 4368439040  │
+│ MaziyarPanahi         │ NeuralBeagle14-7B.Q4_K_M.gguf                                   │ 7B     │ 4368439264  │
+│ MaziyarPanahi         │ mistral-7b-sft-beta.Q4_K_M.gguf                                 │ 7B     │ 4368439392  │
+│ MaziyarPanahi         │ notus-7b-v1.Q4_K_M.gguf                                         │ 7B     │ 4368439392  │
+│ MaziyarPanahi         │ zephyr-7b-alpha.Q4_K_M.gguf                                     │ 7B     │ 4368439392  │
+│ MaziyarPanahi         │ zephyr-7b-beta.Q4_K_M.gguf                                      │ 7B     │ 4368439392  │
+│ MaziyarPanahi         │ zephyr-7b-beta-nf4-fp16-upscaled.Q4_K_M.gguf                    │ 7B     │ 4368439392  │
+│ MaziyarPanahi         │ BioMistral-7B.Q4_K_M.gguf                                       │ 7B     │ 4368439424  │
+│ MaziyarPanahi         │ rank_zephyr_7b_v1_full.Q4_K_M.gguf                              │ 7B     │ 4368439424  │
+│ MaziyarPanahi         │ openchat_3.5-16k-Mistral-7B-Instruct-v0.2-slerp.Q4_K_M.gguf     │ 7B     │ 4368439488  │
+│ ghost-x               │ ghost-7b-v0.9.1-Q4_K_M.gguf                                     │ 7B     │ 4368439488  │
+│ N8Programs            │ Coxcomb.Q4_K_M.gguf                                             │        │ 4368439584  │
+│ MaziyarPanahi         │ dolphin-2.6-mistral-7b.Q4_K_M.gguf                              │ 7B     │ 4368444736  │
+│ MaziyarPanahi         │ dolphin-2.6-mistral-7b-dpo-laser.Q4_K_M.gguf                    │ 7B     │ 4368444736  │
+│ IlyaGusev             │ model-q4_K.gguf                                                 │ 7B     │ 4368450336  │
+│ MaziyarPanahi         │ OpenHermes-2.5-Mistral-7B.Q4_K_M.gguf                           │ 7B     │ 4368450560  │
+│ MaziyarPanahi         │ NeuralHermes-2.5-Mistral-7B.Q4_K_M.gguf                         │ 7B     │ 4368450592  │
+│ MaziyarPanahi         │ Starling-LM-7B-alpha.Q4_K_M.gguf                                │ 7B     │ 4368450592  │
+│ TheBloke              │ mistral-7b-openorca.Q4_K_M.gguf                                 │ 7B     │ 4368450304  │
+│ MaziyarPanahi         │ distilabeled-OpenHermes-2.5-Mistral-7B.Q4_K_M.gguf              │ 7B     │ 4368450592  │
+│ beowolx               │ codeninja-1.0-openchat-7b.Q4_K_M.gguf                           │ 7B     │ 4368450592  │
+│ MaziyarPanahi         │ openchat-3.5-0106.Q4_K_M.gguf                                   │        │ 4368450624  │
+│ MaziyarPanahi         │ openchat-3.5-1210.Q4_K_M.gguf                                   │        │ 4368450624  │
+│ TheBloke              │ codeninja-1.0-openchat-7b.Q4_K_M.gguf                           │ 7B     │ 4368450656  │
+│ QuantFactory          │ dolphin-2.8-mistral-7b-v02.Q4_K_M.gguf                          │ 7B     │ 4368450688  │
+│ lmstudio-community    │ dolphin-2.8-mistral-7b-v02-Q4_K_M.gguf                          │ 7B     │ 4368450688  │
+│ bartowski             │ Starling-LM-7B-beta-Q4_K_M.gguf                                 │ 7B     │ 4368450720  │
+│ mayflowergmbh         │ sauerkrautlm-7b-laserchat.Q4_K_M.gguf                           │ 7B     │ 4368450720  │
+│ MaziyarPanahi         │ Hercules-1.0-Mistral-7B.Q4_K_M.gguf                             │ 7B     │ 4368450752  │
+│ QuantFactory          │ SeaLLM-7B-v2.Q4_K_M.gguf                                        │ 7B     │ 4461639168  │
+│ mradermacher          │ NSFW_DPO_Noromaid-7b-Mistral-7B-Instruct-v0.1.Q4_K_M.gguf       │ 7B     │ 4523063488  │
+│ second-state          │ Baichuan2-7B-Chat-Q4_K_M.gguf                                   │ 7B     │ 4613836320  │
+│ maddes8cht            │ ggml-nomic-ai-gpt4all-falcon-Q4_1.gguf                          │        │ 4643582912  │
+│ IEITYuan              │ Yuan2-2B-Februa-hf-GGUF.gguf                                    │ 2B     │ 4734142656  │
+│ bartowski             │ CodeQwen1.5-7B-Q4_K_M.gguf                                      │ 7B     │ 4738590432  │
+│ Qwen                  │ codeqwen-1_5-7b-chat-q4_k_m.gguf                                │ 7B     │ 4738590464  │
+│ bartowski             │ CodeQwen1.5-7B-Chat-Q4_K_M.gguf                                 │ 7B     │ 4738590464  │
+│ QuantFactory          │ CodeQwen1.5-7B-Chat.Q4_K_M.gguf                                 │ 7B     │ 4738591072  │
+│ second-state          │ Qwen1.5-7B-Chat-Q4_K_M.gguf                                     │ 7B     │ 4767104160  │
+│ bartowski             │ aixcoder-7b-Q4_K_M.gguf                                         │ 7B     │ 4844621344  │
+│ LoneStriker           │ Meta-Llama-3-8B-Instruct-Q4_K_M.gguf                            │ 8B     │ 4920733888  │
+│ lmstudio-community    │ Meta-Llama-3-8B-Instruct-Q4_K_M.gguf                            │ 8B     │ 4920733888  │
+│ bartowski             │ opus-v1.2-llama-3-8b-Q4_K_M.gguf                                │ 8B     │ 4920733952  │
+│ bartowski             │ Llama-3-Smaug-8B-Q4_K_M.gguf                                    │ 8B     │ 4920733984  │
+│ IlyaGusev             │ model-q4_K.gguf                                                 │ 8B     │ 4920734016  │
+│ bartowski             │ internlm2_5-1_8b-chat-Q4_K_M.gguf                               │ 1.8B   │ 1172364448  │
+│ qwp4w3hyb             │ meta-llama-3-8b-instruct-imat-Q4_K_M.gguf                       │ 8B     │ 4920734272  │
+│ MaziyarPanahi         │ Meta-Llama-3-8B-Instruct.Q4_K_M.gguf                            │ 8B     │ 4921246944  │
+│ NousResearch          │ Meta-Llama-3-8B-Q4_K_M.gguf                                     │ 8B     │ 4921246944  │
+│ NousResearch          │ Meta-Llama-3-8B-Instruct-Q4_K_M.gguf                            │ 8B     │ 4921246944  │
+│ QuantFactory          │ Meta-Llama-Guard-2-8B.Q4_K_M.gguf                               │ 8B     │ 4921246944  │
+│ LoneStriker           │ opus-v1.2-llama-3-8b-Q4_K_M.gguf                                │ 8B     │ 4921246976  │
+│ brittlewis12          │ meta-llama-3-8b-instruct.Q4_K_M.gguf                            │ 8B     │ 4921246976  │
+│ second-state          │ gemma-7b-it-Q4_K_M.gguf                                         │ 7B     │ 5127007200  │
+│ maddes8cht            │ nomic-ai-gpt4all-falcon-Q4_K_M.gguf                             │        │ 4975385792  │
+│ MaziyarPanahi         │ gemma-7b.Q4_K_M.gguf                                            │ 7B     │ 5329758592  │
+│ lmstudio-community    │ codegemma-7b-Q4_K_M.gguf                                        │ 7B     │ 5329758592  │
+│ QuantFactory          │ SeaLLM-7B-v2.5.Q4_K_M.gguf                                      │ 7B     │ 5329758944  │
+│ bartowski             │ gemma-1.1-7b-it-Q4_K_M.gguf                                     │ 7B     │ 5329759200  │
+│ brittlewis12          │ gemma-7b-it.Q4_K_M.gguf                                         │ 7B     │ 5329759200  │
+│ MaziyarPanahi         │ gemma-7b-it.Q4_K_M.gguf                                         │ 7B     │ 5329759232  │
+│ lmstudio-community    │ codegemma-7b-it-Q4_K_M.gguf                                     │ 7B     │ 5329759232  │
+│ Qwen                  │ qwen2-7b-instruct-q5_k_m.gguf                                   │ 7B     │ 5444828704  │
+│ Josephgflowers        │ Cinder-Phi-2-V1.F16.gguf                                        │        │ 5563095616  │
+│ froggeric             │ WestLake-10.7b-v2-Q4_KS.gguf                                    │ 7B     │ 6118520992  │
+│ DavidAU               │ Gemma-The-Writer-9B-D_AU-Q4_k_m.gguf                            │ 9B     │ 5761057728  │
+│ bartowski             │ gemma-2-9b-it-Q4_K_M.gguf                                       │ 9B     │ 5761057728  │
+│ bartowski             │ Qwen2.5-3B-Instruct-Q8_0.gguf                                   │ 3B     │ 3285476512  │
+│ second-state          │ stablelm-2-zephyr-1_6b-Q4_K_M.gguf                              │ 6B     │ 1031442432  │
+│ teleprint-me          │ phi-1-q8_0.gguf                                                 │        │ 1510470112  │
+│ bartowski             │ Hermes-2-Pro-Mistral-10.7B-Q4_K_M.gguf                          │ 7B     │ 6461849888  │
+│ Sdff-Ltba             │ LightChatAssistant-2x7B_q4_k_m.gguf                             │ 7B     │ 7782081664  │
+│ MaziyarPanahi         │ MixTAO-7Bx2-MoE-v8.1.Q4_K_M.gguf                                │ 7B     │ 7782086592  │
+│ AI-Engine             │ Meta-Llama-3-8B-Instruct.Q8_0_with_temp_stop_token_fix.gguf     │ 8B     │ 8541283552  │
+│ MaziyarPanahi         │ luxia-21.4b-alignment-v1.0.Q4_K_M.gguf                          │ 4B     │ 12917474368 │
+│ bartowski             │ Mistral-Nemo-12B-ArliAI-RPMax-v1.1-Q8_0.gguf                    │ 12B    │ 13022372608 │
+│ teddylee777           │ Llama-3-Open-Ko-8B-Q8_0.gguf                                    │ 8B     │ 8540770528  │
+│ bartowski             │ gemma-2-27b-it-Q4_K_M.gguf                                      │ 27B    │ 16645381632 │
+│ bartowski             │ Codestral-22B-v0.1-Q6_K.gguf                                    │ 22B    │ 18252701888 │
+│ lmstudio-community    │ DeepSeek-Coder-V2-Lite-Instruct-Q4_K_M.gguf                     │        │ 10364416768 │
+│ lmstudio-community    │ DeepSeek-Coder-V2-Lite-Instruct-Q8_0.gguf                       │        │ 16702518016 │
+│ bartowski             │ gemma-2-27b-it-Q8_0.gguf                                        │ 27B    │ 28937387520 │
+│ bartowski             │ Gemma-2-9B-It-SPPO-Iter3-Q4_K_M.gguf                            │ 9B     │ 5761057760  │
+│ bartowski             │ Gemma-2-9B-It-SPPO-Iter3-Q8_0.gguf                              │ 9B     │ 9827148768  │
+│ bartowski             │ Meta-Llama-3.1-70B-Instruct-Q4_K_M.gguf                         │ 70B    │ 42520398400 │
+│ bartowski             │ Gemma-2-Ataraxy-9B-Q4_K_M.gguf                                  │ 9B     │ 5761058528  │
+│ bartowski             │ Gemma-2-Ataraxy-9B-Q8_0.gguf                                    │ 9B     │ 9827149536  │
+│ anthracite-org        │ magnum-12b-v2.5-kto-Q4_K_M.gguf                                 │ 12B    │ 7477204256  │
+│ anthracite-org        │ magnum-12b-v2.5-kto-Q8_0.gguf                                   │ 12B    │ 13022369056 │
+│ bartowski             │ Phi-3.5-mini-instruct-Q4_K_M.gguf                               │        │ 2393232672  │
+│ TheBloke              │ phi-2.Q4_K_M.gguf                                               │        │ 1789239136  │
+│ bartowski             │ Phi-3.5-mini-instruct-Q8_0.gguf                                 │        │ 4061222688  │
+│ bartowski             │ Qwen2.5-1.5B-Instruct-Q8_0.gguf                                 │ 1.5B   │ 1646573312  │
+│ bartowski             │ Qwen2.5-Math-7B-Instruct-Q4_K_M.gguf                            │ 7B     │ 4683074272  │
+│ bartowski             │ Qwen2.5-Coder-7B-Instruct-Q4_K_M.gguf                           │ 7B     │ 4683074336  │
+│ bartowski             │ Qwen2.5-72B-Instruct-Q4_K_M.gguf                                │ 72B    │ 47415715488 │
+│ bartowski             │ Phi-3.5-mini-instruct_Uncensored-Q4_K_M.gguf                    │        │ 2393232448  │
+│ bartowski             │ Phi-3.5-mini-instruct_Uncensored-Q8_0.gguf                      │        │ 4061222464  │
+│ speakleash            │ Bielik-11B-v2.2-Instruct.Q4_K_M.gguf                            │ 11B    │ 6724050432  │
+│ speakleash            │ Bielik-11B-v2.2-Instruct.Q8_0.gguf                              │ 11B    │ 11868810752 │
+│ QuantFactory          │ llama-3.1-chinese-8b-it-dpo.Q4_K_M.gguf                         │ 8B     │ 4920734304  │
+│ QuantFactory          │ llama-3.1-chinese-8b-it-dpo.Q8_0.gguf                           │ 8B     │ 8540770912  │
+│ byroneverson          │ gemma-2-27b-it-abliterated-q4_k_m.gguf                          │ 27B    │ 16645382048 │
+│ byroneverson          │ gemma-2-27b-it-abliterated-q8_0.gguf                            │ 27B    │ 28937387936 │
+│ TheBloke              │ phi-2.Q8_0.gguf                                                 │        │ 2958032736  │
+│ Epiculous             │ Violet_Twilight-v0.2.Q4_K_M.gguf                                │        │ 7477204672  │
+│ Epiculous             │ Violet_Twilight-v0.2.Q8_0.gguf                                  │        │ 13022369472 │
+│ bartowski             │ Nemotron-Mini-4B-Instruct-Q4_K_M.gguf                           │ 4B     │ 2697387072  │
+│ bartowski             │ Nemotron-Mini-4B-Instruct-Q8_0.gguf                             │ 4B     │ 4459928640  │
+│ Qwen                  │ qwen2.5-0.5b-instruct-q4_k_m.gguf                               │ 0.5B   │ 491400032   │
+│ Qwen                  │ qwen2.5-0.5b-instruct-q8_0.gguf                                 │ 0.5B   │ 675710816   │
+│ Qwen                  │ qwen2.5-coder-1.5b-instruct-q4_k_m.gguf                         │ 1.5B   │ 1117320768  │
+│ Qwen                  │ qwen2.5-coder-1.5b-instruct-q8_0.gguf                           │ 1.5B   │ 1894532160  │
+│ QuantFactory          │ Skywork-Critic-Llama-3.1-8B.Q4_K_M.gguf                         │ 8B     │ 4920738912  │
+│ QuantFactory          │ Skywork-Critic-Llama-3.1-8B.Q8_0.gguf                           │ 8B     │ 8540775520  │
+│ IlyaGusev             │ model-q8_0.gguf                                                 │ 13B    │ 13831319296 │
+│ TheBloke              │ codellama-7b.Q8_0.gguf                                          │ 7B     │ 7161229504  │
+│ TheBloke              │ codellama-13b-instruct.Q4_K_M.gguf                              │ 13B    │ 7866070016  │
+│ bartowski             │ Llama-3.2-1B-Instruct-Q8_0.gguf                                 │ 1B     │ 1321083008  │
+│ bartowski             │ Llama-3.2-3B-Instruct-Q8_0.gguf                                 │ 3B     │ 3421899296  │
+│ TheBloke              │ codellama-13b-instruct.Q8_0.gguf                                │ 13B    │ 13831494016 │
+│ TheBloke              │ causallm_7b.Q4_K_M.gguf                                         │ 7B     │ 4765215712  │
+│ TheBloke              │ causallm_7b.Q8_0.gguf                                           │ 7B     │ 8209906656  │
+│ tastypear             │ causallm_14b-dpo-alpha.Q4_K_M.gguf                              │ 14B    │ 9188260512  │
+│ tastypear             │ causallm_14b-dpo-alpha.Q8_0.gguf                                │ 14B    │ 15058954912 │
+│ Qwen                  │ qwen1_5-7b-chat-q4_k_m.gguf                                     │ 7B     │ 4767104224  │
+│ Qwen                  │ qwen1_5-7b-chat-q8_0.gguf                                       │ 7B     │ 8211795168  │
+│ Qwen                  │ qwen1_5-14b-chat-q4_k_m.gguf                                    │ 14B    │ 9191034336  │
+│ Qwen                  │ qwen1_5-14b-chat-q8_0.gguf                                      │ 14B    │ 15061728736 │
+│ acon96                │ Home-3B-v3.q8_0.gguf                                            │ 3B     │ 2972925888  │
+│ Qwen                  │ codeqwen-1_5-7b-chat-q8_0.gguf                                  │ 7B     │ 7706773248  │
+│ IlyaGusev             │ model-q8_0.gguf                                                 │ 8B     │ 8540770624  │
+│ bartowski             │ Nxcode-CQ-7B-orpo-Q4_K_M.gguf                                   │ 7B     │ 4738590752  │
+│ bartowski             │ Nxcode-CQ-7B-orpo-Q8_0.gguf                                     │ 7B     │ 7706773536  │
+│ ibm-granite           │ granite-20b-code-instruct.Q4_K_M.gguf                           │ 20B    │ 12820207360 │
+│ bartowski             │ aya-23-35B-Q4_K_M.gguf                                          │ 35B    │ 21527051168 │
+│ bartowski             │ aya-23-35B-Q8_0.gguf                                            │ 35B    │ 37179014048 │
+│ legraphista           │ Phi-3-medium-128k-instruct.Q8_0.gguf                            │        │ 14834712320 │
+│ Qwen                  │ qwen2-0_5b-instruct-q4_k_m.gguf                                 │ 0.5B   │ 397805248   │
+│ Qwen                  │ qwen2-0_5b-instruct-q8_0.gguf                                   │ 0.5B   │ 531065536   │
+│ Qwen                  │ qwen2-72b-instruct-q4_k_m.gguf                                  │ 72B    │ 47415712640 │
+│ legraphista           │ glm-4-9b-chat.Q8_0.gguf                                         │ 9B     │ 9994994880  │
+│ bartowski             │ llama-3-fantasy-writer-8b-Q4_K_M.gguf                           │ 8B     │ 4920734304  │
+│ bartowski             │ Llama-3.1-SuperNova-Lite-Q4_K_M.gguf                            │        │ 4920735072  │
+│ bartowski             │ Llama-3.1-SuperNova-Lite-Q8_0.gguf                              │        │ 8540771680  │
+│ bartowski             │ Donnager-70B-v1-Q4_K_M.gguf                                     │ 70B    │ 41422911712 │
+│ bartowski             │ llama-3-fantasy-writer-8b-Q8_0.gguf                             │ 8B     │ 8540770912  │
+│ internlm              │ internlm2_5-7b-chat-q4_k_m.gguf                                 │ 7B     │ 4712768320  │
+│ internlm              │ internlm2_5-7b-chat-q8_0.gguf                                   │ 7B     │ 8224240448  │
+│ bartowski             │ Phi-3.1-mini-128k-instruct-Q4_K_M.gguf                          │        │ 2393232640  │
+│ bartowski             │ Phi-3.1-mini-128k-instruct-Q8_0.gguf                            │        │ 4061222656  │
+│ h2oai                 │ h2o-danube3-4b-chat-Q4_K_M.gguf                                 │ 4B     │ 2394648960  │
+│ h2oai                 │ h2o-danube3-4b-chat-Q8_0.gguf                                   │ 4B     │ 4210738560  │
+│ bartowski             │ codegeex4-all-9b-Q4_K_M.gguf                                    │ 9B     │ 6250923424  │
+│ bartowski             │ codegeex4-all-9b-Q8_0.gguf                                      │ 9B     │ 9994995104  │
+│ bartowski             │ Mistral-Nemo-Instruct-2407-Q4_K_M.gguf                          │        │ 7477204960  │
+│ bartowski             │ Mistral-Nemo-Instruct-2407-Q8_0.gguf                            │        │ 13022369760 │
+│ bartowski             │ gemma-2-9b-it-abliterated-Q4_K_M.gguf                           │ 9B     │ 5761057760  │
+│ bartowski             │ gemma-2-9b-it-abliterated-Q8_0.gguf                             │ 9B     │ 9827148768  │
+│ QuantFactory          │ Meta-Llama-3.1-8B.Q4_K_M.gguf                                   │ 8B     │ 4920733856  │
+│ QuantFactory          │ Meta-Llama-3.1-8B.Q8_0.gguf                                     │ 8B     │ 8540770464  │
+│ internlm              │ internlm2_5-20b-chat-q4_k_m.gguf                                │ 20B    │ 11984469376 │
+│ internlm              │ internlm2_5-20b-chat-q8_0.gguf                                  │ 20B    │ 21106374016 │
+│ bartowski             │ gemma-2-2b-it-Q4_K_M.gguf                                       │ 2B     │ 1708582752  │
+│ bartowski             │ gemma-2-2b-it-Q8_0.gguf                                         │ 2B     │ 2784495456  │
+│ bartowski             │ gemma-2-2b-it-abliterated-Q4_K_M.gguf                           │ 2B     │ 1708582784  │
+│ bartowski             │ gemma-2-2b-it-abliterated-Q8_0.gguf                             │ 2B     │ 2784495488  │
+│ anthracite-org        │ magnum-12b-v2-q8_0.gguf                                         │ 12B    │ 13022368768 │
+│ bartowski             │ LongWriter-llama3.1-8b-Q4_K_M.gguf                              │ 8B     │ 4920734528  │
+│ bartowski             │ LongWriter-llama3.1-8b-Q8_0.gguf                                │ 8B     │ 8540771136  │
+│ DavidAU               │ Command-R-35B-Dark-Horror-V1-D_AU-Q4_k_m.gguf                   │ 35B    │ 21527051200 │
+│ DavidAU               │ Command-R-35B-Dark-Horror-V2-D_AU-Q4_k_m.gguf                   │ 35B    │ 21527051200 │
+│ akjindal53244         │ Llama-3.1-Storm-8B.Q4_K_M.gguf                                  │ 8B     │ 4920734496  │
+│ akjindal53244         │ Llama-3.1-Storm-8B.Q8_0.gguf                                    │ 8B     │ 8540771104  │
+│ bartowski             │ Hermes-3-Llama-3.1-8B-lorablated-Q4_K_M.gguf                    │ 8B     │ 4920734400  │
+│ bartowski             │ Hermes-3-Llama-3.1-8B-lorablated-Q8_0.gguf                      │ 8B     │ 8540771008  │
+│ bartowski             │ Chronos-Gold-12B-1.0-Q4_K_M.gguf                                │ 12B    │ 7477204448  │
+│ bartowski             │ Chronos-Gold-12B-1.0-Q8_0.gguf                                  │ 12B    │ 13022369248 │
+│ byroneverson          │ glm-4-9b-chat-abliterated-q4_k_m.gguf                           │ 9B     │ 6250926912  │
+│ bartowski             │ dolphin-2.9.4-gemma2-2b-Q4_K_M.gguf                             │ 2B     │ 1708586240  │
+│ bartowski             │ dolphin-2.9.4-gemma2-2b-Q8_0.gguf                               │ 2B     │ 2784500032  │
+│ anthracite-org        │ magnum-v3-34b-Q4_K_M.gguf                                       │ 34B    │ 20658711456 │
+│ anthracite-org        │ magnum-v3-34b-Q8_0.gguf                                         │ 34B    │ 36542282432 │
+│ bartowski             │ Lyra_Gutenbergs-Twilight_Magnum-12B-Q4_K_M.gguf                 │ 12B    │ 7477204320  │
+│ bartowski             │ Lyra_Gutenbergs-Twilight_Magnum-12B-Q8_0.gguf                   │ 12B    │ 13022369120 │
+│ bartowski             │ miniG-Q4_K_M.gguf                                               │        │ 6308677312  │
+│ bartowski             │ miniG-Q8_0.gguf                                                 │        │ 10084206272 │
+│ bartowski             │ c4ai-command-r-08-2024-Q4_K_M.gguf                              │        │ 19800833472 │
+│ bartowski             │ c4ai-command-r-08-2024-Q8_0.gguf                                │        │ 34326887872 │
+│ DavidAU               │ L3-Dark-Planet-8B-D_AU-Q4_k_m.gguf                              │ 8B     │ 4920734144  │
+│ DavidAU               │ L3-Dark-Planet-8B-D_AU-Q8_0.gguf                                │ 8B     │ 8540770752  │
+│ bartowski             │ Yi-Coder-9B-Chat-Q4_K_M.gguf                                    │ 9B     │ 5328958272  │
+│ bartowski             │ Yi-Coder-9B-Chat-Q8_0.gguf                                      │ 9B     │ 9383916352  │
+│ bartowski             │ Reflection-Llama-3.1-70B-Q4_K_M.gguf                            │ 70B    │ 42520462272 │
+│ bartowski             │ MN-12B-Lyra-v4-Q4_K_M.gguf                                      │ 12B    │ 7477207776  │
+│ bartowski             │ Llama-3.2-3B-Instruct-Q4_K_M.gguf                               │ 3B     │ 2019377696  │
+│ hugging-quants        │ llama-3.2-3b-instruct-q8_0.gguf                                 │ 3B     │ 3421895520  │
+│ lmstudio-community    │ Llama-3.2-1B-Instruct-Q4_K_M.gguf                               │ 1B     │ 807690688   │
+│ lmstudio-community    │ Llama-3.2-1B-Instruct-Q8_0.gguf                                 │ 1B     │ 1321079232  │
+│ hugging-quants        │ llama-3.2-1b-instruct-q8_0.gguf                                 │ 1B     │ 1321079200  │
+│ hugging-quants        │ llama-3.2-1b-instruct-q4_k_m.gguf                               │ 1B     │ 807690656   │
+│ bartowski             │ Qwen2.5-32B-Instruct-Q4_K_M.gguf                                │ 32B    │ 19851336576 │
+│ bartowski             │ Qwen2.5-32B-Instruct-Q8_0.gguf                                  │ 32B    │ 34820885376 │
+│ hugging-quants        │ llama-3.2-3b-instruct-q4_k_m.gguf                               │ 3B     │ 2019373920  │
+│ bartowski             │ Meta-Llama-3.1-8B-Instruct-Q8_0.gguf                            │ 8B     │ 8540775840  │
+│ Qwen                  │ qwen2.5-1.5b-instruct-q4_k_m.gguf                               │ 1.5B   │ 1117320736  │
+│ Qwen                  │ qwen2.5-1.5b-instruct-q8_0.gguf                                 │ 1.5B   │ 1894532128  │
+│ bartowski             │ Mistral-Small-Instruct-2409-Q4_K_M.gguf                         │        │ 13341242368 │
+│ bartowski             │ Mistral-Small-Instruct-2409-Q8_0.gguf                           │        │ 23640552448 │
+│ bartowski             │ Mistral-Small-22B-ArliAI-RPMax-v1.1-Q4_K_M.gguf                 │ 22B    │ 13341242240 │
+│ bartowski             │ Mistral-Small-22B-ArliAI-RPMax-v1.1-Q8_0.gguf                   │ 22B    │ 23640552320 │
+│ bartowski             │ gemma-2-9b-it-Q8_0.gguf                                         │ 9B     │ 9827148736  │
+│ QuantFactory          │ DarkIdol-Llama-3.1-8B-Instruct-1.2-Uncensored.Q4_K_M.gguf       │ 8B     │ 4920735104  │
+│ QuantFactory          │ DarkIdol-Llama-3.1-8B-Instruct-1.2-Uncensored.Q8_0.gguf         │ 8B     │ 8540771712  │
+│ bartowski             │ NemoMix-Unleashed-12B-Q4_K_M.gguf                               │ 12B    │ 7477203776  │
+│ bartowski             │ NemoMix-Unleashed-12B-Q8_0.gguf                                 │ 12B    │ 13022368576 │
+│ bartowski             │ Qwen2.5-32B-AGI-Q4_K_M.gguf                                     │ 32B    │ 19851334528 │
+│ bartowski             │ Qwen2.5-32B-AGI-Q8_0.gguf                                       │ 32B    │ 34820883328 │
+│ bartowski             │ Qwen2.5-14B_Uncensored_Instruct-Q4_K_M.gguf                     │ 14B    │ 8988110592  │
+│ bartowski             │ Qwen2.5-14B_Uncensored_Instruct-Q8_0.gguf                       │ 14B    │ 15701597952 │
+│ QuantFactory          │ Llama-3.2-3B.Q4_K_M.gguf                                        │ 3B     │ 2019373472  │
+│ QuantFactory          │ Llama-3.2-3B.Q8_0.gguf                                          │ 3B     │ 3421895072  │
+│ TheBloke              │ causallm_14b.Q8_0.gguf                                          │ 14B    │ 15058954912 │
+│ brittlewis12          │ kunoichi-dpo-v2-7b.Q4_K_M.gguf                                  │ 7B     │ 4368438944  │
+│ brittlewis12          │ kunoichi-dpo-v2-7b.Q8_0.gguf                                    │ 7B     │ 7695857312  │
+│ QuantFactory          │ NeuralDaredevil-8B-abliterated.Q4_K_M.gguf                      │ 8B     │ 4920733536  │
+│ QuantFactory          │ NeuralDaredevil-8B-abliterated.Q8_0.gguf                        │ 8B     │ 8540770144  │
+│ second-state          │ c4ai-command-r-v01-Q4_K_M.gguf                                  │        │ 21527050880 │
+│ TheBloke              │ mixtral-slimorca-8x7b.Q4_K_M.gguf                               │ 7B     │ 26441544192 │
+│ second-state          │ Mixtral-8x7B-Instruct-v0.1-Q4_K_M.gguf                          │ 7B     │ 28346784154 │
+│ QuantFactory          │ dolphin-2.9-llama3-70b.Q5_K_M.gguf                              │ 70B    │ 49950354016 │
+│ bartowski             │ Llama-3.1-8B-Lexi-Uncensored-V2-Q4_K_M.gguf                     │ 8B     │ 4920739104  │
+│ bartowski             │ Llama-3.1-8B-Lexi-Uncensored-V2-Q8_0.gguf                       │ 8B     │ 8540775712  │
+│ MaziyarPanahi         │ solar-pro-preview-instruct.Q4_K_M.gguf                          │        │ 13310219072 │
+│ MaziyarPanahi         │ solar-pro-preview-instruct.Q8_0.gguf                            │        │ 23526487872 │
+│ bartowski             │ Qwen2.5-14B-Instruct-Q4_K_M.gguf                                │ 14B    │ 8988110976  │
+│ DavidAU               │ Gemma-The-Writer-9B-D_AU-Q8_0.gguf                              │ 9B     │ 9827148736  │
+│ bartowski             │ Cydonia-22B-v1-Q4_K_M.gguf                                      │ 22B    │ 13341239200 │
+│ bartowski             │ Cydonia-22B-v1-Q8_0.gguf                                        │ 22B    │ 23640549280 │
+│ DavidAU               │ L3-Stheno-Maid-Blackroot-Grand-HORROR-16B-D_AU-Q4_K_M.gguf      │ 16B    │ 10014868224 │
+│ DavidAU               │ L3-Stheno-Maid-Blackroot-Grand-HORROR-16B-D_AU-Q8_0.gguf        │ 16B    │ 17579746048 │
+│ KoboldAI              │ mistral7b-erebus-v3.Q4_K_M.gguf                                 │ 7B     │ 4368438944  │
+│ KoboldAI              │ mistral7b-erebus-v3.Q8_0.gguf                                   │ 7B     │ 7695857312  │
+│ mzwing                │ NSFW_13B_sft.Q4_K_M.gguf                                        │ 13B    │ 8560487488  │
+│ mzwing                │ NSFW_13B_sft.Q8_0.gguf                                          │ 13B    │ 14096538688 │
+│ backyardai            │ DarkSapling-7B-v2.0.Q4_K_M.gguf                                 │ 7B     │ 4368450464  │
+│ backyardai            │ DarkSapling-7B-v2.0.Q8_0.gguf                                   │ 7B     │ 7695874912  │
+│ DavidAU               │ L3-Dark-Planet-8B-V2-EOOP-D_AU-Q4_k_m.gguf                      │ 8B     │ 4920734304  │
+│ DavidAU               │ L3-Dark-Planet-8B-V2-EOOP-D_AU-Q8_0.gguf                        │ 8B     │ 8540770912  │
+│ mradermacher          │ mistral-7b-uncensored.Q4_K_M.gguf                               │ 7B     │ 4368440640  │
+│ mradermacher          │ mistral-7b-uncensored.Q8_0.gguf                                 │ 7B     │ 7695859008  │
+│ TheBloke              │ codellama-7b-instruct.Q4_K_M.gguf                               │ 7B     │ 4081095360  │
+│ TheBloke              │ codellama-7b-instruct.Q8_0.gguf                                 │ 7B     │ 7161229504  │
+│ TheBloke              │ codellama-7b-python.Q4_K_M.gguf                                 │ 7B     │ 4081004288  │
+│ TheBloke              │ codellama-7b-python.Q8_0.gguf                                   │ 7B     │ 7161089792  │
+│ TheBloke              │ codellama-13b.Q4_K_M.gguf                                       │ 13B    │ 7866070016  │
+│ TheBloke              │ codellama-13b.Q8_0.gguf                                         │ 13B    │ 13831494016 │
+│ TheBloke              │ codellama-13b-python.Q4_K_M.gguf                                │ 13B    │ 7865956288  │
+│ TheBloke              │ codellama-13b-python.Q8_0.gguf                                  │ 13B    │ 13831319488 │
+│ TheBloke              │ codellama-34b.Q4_K_M.gguf                                       │ 34B    │ 20219900064 │
+│ TheBloke              │ codellama-34b.Q8_0.gguf                                         │ 34B    │ 35856052384 │
+│ TheBloke              │ codellama-34b-python.Q4_K_M.gguf                                │ 34B    │ 20219900064 │
+│ TheBloke              │ codellama-34b-python.Q8_0.gguf                                  │ 34B    │ 35856052384 │
+│ TheBloke              │ codellama-34b-instruct.Q4_K_M.gguf                              │ 34B    │ 20219900064 │
+│ TheBloke              │ codellama-34b-instruct.Q8_0.gguf                                │ 34B    │ 35856052384 │
+│ TheBloke              │ llama-2-70b-orca-200k.Q4_K_M.gguf                               │ 70B    │ 41422910368 │
+│ TheBloke              │ speechless-llama2-hermes-orca-platypus-wizardlm-13b.Q4_K_M.gguf │ 13B    │ 7865956224  │
+│ TheBloke              │ speechless-llama2-hermes-orca-platypus-wizardlm-13b.Q8_0.gguf   │ 13B    │ 13831319424 │
+│ TheBloke              │ openbuddy-llama2-13b-v11.1.Q4_K_M.gguf                          │ 13B    │ 7905938720  │
+│ TheBloke              │ openbuddy-llama2-13b-v11.1.Q8_0.gguf                            │ 13B    │ 13892703520 │
+│ mmnga                 │ aibuncho-japanese-novel-gpt-j-6b-q8_0.gguf                      │ 6B     │ 6432721920  │
+│ TheBloke              │ llama-2-7b.Q4_K_M.gguf                                          │ 7B     │ 4081004224  │
+│ TheBloke              │ llama-2-7b.Q8_0.gguf                                            │ 7B     │ 7161089728  │
+│ TheBloke              │ llama-2-13b-chat.Q4_K_M.gguf                                    │ 13B    │ 7865956224  │
+│ TheBloke              │ llama-2-13b-chat.Q8_0.gguf                                      │ 13B    │ 13831319424 │
+│ TheBloke              │ llama-2-13b.Q4_K_M.gguf                                         │ 13B    │ 7865956224  │
+│ TheBloke              │ llama-2-13b.Q8_0.gguf                                           │ 13B    │ 13831319424 │
+│ TheBloke              │ llama-2-70b-chat.Q4_K_M.gguf                                    │ 70B    │ 41422910368 │
+│ TheBloke              │ llama-2-70b.Q4_K_M.gguf                                         │ 70B    │ 41422910368 │
+│ TheBloke              │ orca_mini_v3_7b.Q4_K_M.gguf                                     │ 7B     │ 4081004224  │
+│ TheBloke              │ orca_mini_v3_7b.Q8_0.gguf                                       │ 7B     │ 7161089728  │
+│ TheBloke              │ mythalion-13b.Q4_K_M.gguf                                       │ 13B    │ 7865956224  │
+│ TheBloke              │ mythalion-13b.Q8_0.gguf                                         │ 13B    │ 13831319424 │
+│ TheBloke              │ guanaco-7b-uncensored.Q8_0.gguf                                 │ 7B     │ 7161089728  │
+│ TheBloke              │ guanaco-13b-uncensored.Q4_K_M.gguf                              │ 13B    │ 7865956288  │
+│ bartowski             │ codegemma-1.1-7b-it-Q4_K_M.gguf                                 │ 7B     │ 5329759744  │
+│ TheBloke              │ guanaco-13b-uncensored.Q8_0.gguf                                │ 13B    │ 13831319488 │
+│ TheBloke              │ mistral-7b-v0.1.Q4_K_M.gguf                                     │ 7B     │ 4368438912  │
+│ TheBloke              │ mistral-7b-v0.1.Q8_0.gguf                                       │ 7B     │ 7695857280  │
+│ TheBloke              │ em_german_13b_v01.Q4_K_M.gguf                                   │ 13B    │ 7865956288  │
+│ TheBloke              │ em_german_13b_v01.Q8_0.gguf                                     │ 13B    │ 13831319488 │
+│ TheBloke              │ em_german_7b_v01.Q4_K_M.gguf                                    │ 7B     │ 4081004256  │
+│ TheBloke              │ em_german_7b_v01.Q8_0.gguf                                      │ 7B     │ 7161089760  │
+│ TheBloke              │ mistral-7b-openorca.Q8_0.gguf                                   │ 7B     │ 7695874752  │
+│ TheBloke              │ em_german_mistral_v01.Q4_K_M.gguf                               │        │ 4368438912  │
+│ TheBloke              │ em_german_mistral_v01.Q8_0.gguf                                 │        │ 7695857280  │
+│ IlyaGusev             │ model-q8_0.gguf                                                 │ 7B     │ 7695874784  │
+│ TheBloke              │ em_german_leo_mistral.Q4_K_M.gguf                               │        │ 4368438912  │
+│ TheBloke              │ em_german_leo_mistral.Q8_0.gguf                                 │        │ 7695857280  │
+│ maddes8cht            │ ggml-nomic-ai-gpt4all-falcon-Q8_0.gguf                          │        │ 7671704512  │
+│ second-state          │ Wizard-Vicuna-13B-Uncensored-Q4_K_M.gguf                        │ 13B    │ 7865956352  │
+│ second-state          │ Wizard-Vicuna-13B-Uncensored-Q8_0.gguf                          │ 13B    │ 13831319552 │
+│ TheBloke              │ orca-2-13b.Q4_K_M.gguf                                          │ 13B    │ 7865977664  │
+│ TheBloke              │ orca-2-13b.Q8_0.gguf                                            │ 13B    │ 13831352256 │
+│ TheBloke              │ orca-2-7b.Q4_K_M.gguf                                           │ 7B     │ 4081021376  │
+│ TheBloke              │ orca-2-7b.Q8_0.gguf                                             │ 7B     │ 7161116000  │
+│ afrideva              │ tiny-vicuna-1b.q4_k_m.gguf                                      │ 1B     │ 667814400   │
+│ afrideva              │ tiny-vicuna-1b.q8_0.gguf                                        │ 1B     │ 1169807872  │
+│ TheBloke              │ yi-34b-chat.Q4_K_M.gguf                                         │ 34B    │ 20658710880 │
+│ TheBloke              │ yi-34b-chat.Q8_0.gguf                                           │ 34B    │ 36542282080 │
+│ TheBloke              │ openchat-3.5-1210.Q4_K_M.gguf                                   │        │ 4368450656  │
+│ TheBloke              │ openchat-3.5-1210.Q8_0.gguf                                     │        │ 7695875104  │
+│ TheBloke              │ swallow-7b-instruct.Q4_K_M.gguf                                 │ 7B     │ 4144560160  │
+│ TheBloke              │ swallow-7b-instruct.Q8_0.gguf                                   │ 7B     │ 7258620704  │
+│ TheBloke              │ phi-2-dpo.Q4_K_M.gguf                                           │        │ 1786015488  │
+│ TheBloke              │ phi-2-dpo.Q8_0.gguf                                             │        │ 2953091488  │
+│ TheBloke              │ openchat-3.5-0106.Q4_K_M.gguf                                   │        │ 4368450656  │
+│ TheBloke              │ openchat-3.5-0106.Q8_0.gguf                                     │        │ 7695875104  │
+│ KoboldAI              │ llama2-13b-erebus-v3.Q4_K_M.gguf                                │ 13B    │ 7865956320  │
+│ KoboldAI              │ llama2-13b-erebus-v3.Q8_0.gguf                                  │ 13B    │ 13831319520 │
+│ second-state          │ zephyr-7b-beta-Q4_K_M.gguf                                      │ 7B     │ 4368439392  │
+│ second-state          │ zephyr-7b-beta-Q8_0.gguf                                        │ 7B     │ 7695857760  │
+│ TheBloke              │ medicine-llm.Q4_K_M.gguf                                        │        │ 4081009920  │
+│ TheBloke              │ medicine-llm.Q8_0.gguf                                          │        │ 7161098464  │
+│ oblivious             │ ruGPT-3.5-13B-Q4_K_M.gguf                                       │ 13B    │ 8387633632  │
+│ oblivious             │ ruGPT-3.5-13B-Q8_0.gguf                                         │ 13B    │ 13941478112 │
+│ TheBloke              │ codellama-70b-hf.Q4_K_M.gguf                                    │ 70B    │ 41423092224 │
+│ TheBloke              │ codellama-70b-instruct.Q4_K_M.gguf                              │ 70B    │ 41423092768 │
+│ TheBloke              │ codellama-70b-python.Q4_K_M.gguf                                │ 70B    │ 41423092192 │
+│ TheBloke              │ kafkalm-70b-german-v0.1.Q4_K_M.gguf                             │ 70B    │ 41422910528 │
+│ Qwen                  │ qwen1_5-0_5b-chat-q4_k_m.gguf                                   │ 0.5B   │ 407155552   │
+│ Qwen                  │ qwen1_5-0_5b-chat-q8_0.gguf                                     │ 0.5B   │ 664602464   │
+│ Qwen                  │ qwen1_5-1_8b-chat-q4_k_m.gguf                                   │ 1.8B   │ 1217752928  │
+│ Qwen                  │ qwen1_5-1_8b-chat-q8_0.gguf                                     │ 1.8B   │ 1958303584  │
+│ Ttimofeyka            │ MistralRP-Noromaid-NSFW-7B-Q8_0.gguf                            │ 7B     │ 7695857344  │
+│ Endevor               │ endlessrp-v3-7b.Q4_K_M.gguf                                     │ 7B     │ 4368439008  │
+│ Endevor               │ endlessrp-v3-7b.Q8_0.gguf                                       │ 7B     │ 7695857376  │
+│ second-state          │ llava-v1.6-vicuna-7b-Q4_K_M.gguf                                │ 7B     │ 4081004352  │
+│ second-state          │ llava-v1.6-vicuna-7b-Q8_0.gguf                                  │ 7B     │ 7161089856  │
+│ second-state          │ llava-v1.5-7b-Q4_K_M.gguf                                       │ 7B     │ 4081004320  │
+│ second-state          │ llava-v1.5-7b-Q8_0.gguf                                         │ 7B     │ 7161089824  │
+│ second-state          │ starcoder2-3b-Q4_K_M.gguf                                       │ 3B     │ 1848976448  │
+│ second-state          │ starcoder2-3b-Q8_0.gguf                                         │ 3B     │ 3224556608  │
+│ second-state          │ starcoder2-7b-Q4_K_M.gguf                                       │ 7B     │ 4402887488  │
+│ second-state          │ starcoder2-7b-Q8_0.gguf                                         │ 7B     │ 7628929856  │
+│ nold                  │ starcoder2-3b_Q4_K_M.gguf                                       │ 3B     │ 1848976448  │
+│ nold                  │ starcoder2-3b_Q8_0.gguf                                         │ 3B     │ 3224556608  │
+│ bartowski             │ dolphin-2.8-experiment26-7b-Q4_K_M.gguf                         │ 7B     │ 4368451008  │
+│ bartowski             │ dolphin-2.8-experiment26-7b-Q8_0.gguf                           │ 7B     │ 7695875456  │
+│ bartowski             │ starcoder2-15b-instruct-Q4_K_M.gguf                             │ 15B    │ 9860188064  │
+│ bartowski             │ starcoder2-15b-instruct-Q8_0.gguf                               │ 15B    │ 16965109664 │
+│ bartowski             │ Mistral-Evolved-11b-v0.1-Q4_K_M.gguf                            │ 11B    │ 6723321024  │
+│ bartowski             │ Mistral-Evolved-11b-v0.1-Q8_0.gguf                              │ 11B    │ 11867692224 │
+│ bartowski             │ codegemma-1.1-7b-it-Q8_0.gguf                                   │ 7B     │ 9077845504  │
+│ bartowski             │ Excalibur-7b-Q4_K_M.gguf                                        │ 7B     │ 4368439072  │
+│ bartowski             │ Excalibur-7b-Q8_0.gguf                                          │ 7B     │ 7695857440  │
+│ MTSmash               │ EVA-GPT-German-v8.4-q8_0.gguf                                   │        │ 7695883808  │
+│ bartowski             │ stable-code-instruct-3b-Q4_K_M.gguf                             │ 3B     │ 1708595936  │
+│ bartowski             │ stable-code-instruct-3b-Q8_0.gguf                               │ 3B     │ 2972926176  │
+│ bartowski             │ dolphin-2.8-mistral-7b-v02-Q4_K_M.gguf                          │ 7B     │ 4368450688  │
+│ bartowski             │ dolphin-2.8-mistral-7b-v02-Q8_0.gguf                            │ 7B     │ 7695875136  │
+│ lmstudio-community    │ c4ai-command-r-v01-Q4_K_M.gguf                                  │        │ 21527041856 │
+│ lmstudio-community    │ c4ai-command-r-v01-Q8_0.gguf                                    │        │ 37179004736 │
+│ Qwen                  │ qwen1_5-32b-chat-q4_k_m.gguf                                    │ 32B    │ 19698962112 │
+│ Qwen                  │ qwen1_5-32b-chat-q8_0.gguf                                      │ 32B    │ 34553495232 │
+│ QuantFactory          │ Meta-Llama-3-8B.Q4_K_M.gguf                                     │ 8B     │ 4921246944  │
+│ QuantFactory          │ Meta-Llama-3-8B.Q8_0.gguf                                       │ 8B     │ 8541283552  │
+│ MaziyarPanahi         │ Meta-Llama-3-70B-Instruct.Q4_K_M.gguf                           │ 70B    │ 42520906176 │
+│ bartowski             │ OrpoLlama-3-8B-Q4_K_M.gguf                                      │ 8B     │ 4920745152  │
+│ bartowski             │ OrpoLlama-3-8B-Q8_0.gguf                                        │ 8B     │ 8540787840  │
+│ QuantFactory          │ dolphin-2.9-llama3-8b.Q4_K_M.gguf                               │ 8B     │ 4921258368  │
+│ QuantFactory          │ dolphin-2.9-llama3-8b.Q8_0.gguf                                 │ 8B     │ 8541301056  │
+│ bartowski             │ L3-TheSpice-8b-v0.1.3-Q4_K_M.gguf                               │ 8B     │ 4920733952  │
+│ bartowski             │ L3-TheSpice-8b-v0.1.3-Q8_0.gguf                                 │ 8B     │ 8540770560  │
+│ bartowski             │ General-Stories-Mistral-7B-Q4_K_M.gguf                          │ 7B     │ 4368439424  │
+│ bartowski             │ General-Stories-Mistral-7B-Q8_0.gguf                            │ 7B     │ 7695857792  │
+│ bartowski             │ Llama-3-SauerkrautLM-8b-Instruct-Q4_K_M.gguf                    │ 8B     │ 4920734272  │
+│ bartowski             │ Llama-3-SauerkrautLM-8b-Instruct-Q8_0.gguf                      │ 8B     │ 8540770880  │
+│ bartowski             │ Scarlett-Llama-3-8B-Q4_K_M.gguf                                 │ 8B     │ 4920745248  │
+│ legraphista           │ Nxcode-CQ-7B-orpo.Q8_0.gguf                                     │ 7B     │ 7706773600  │
+│ bartowski             │ Scarlett-Llama-3-8B-Q8_0.gguf                                   │ 8B     │ 8540787936  │
+│ duyntnet              │ TinyLlama-1.1B-Chat-v1.0-Q4_K_M.gguf                            │ 1.1B   │ 667814944   │
+│ duyntnet              │ TinyLlama-1.1B-Chat-v1.0-Q8_0.gguf                              │ 1.1B   │ 1169808416  │
+│ SanctumAI             │ phi-3-mini-4k-instruct.Q4_K_M.gguf                              │        │ 2393231808  │
+│ SanctumAI             │ phi-3-mini-4k-instruct.Q8_0.gguf                                │        │ 4061221824  │
+│ QuantFactory          │ Phi-3-mini-128k-instruct.Q4_K_M.gguf                            │        │ 2393231712  │
+│ QuantFactory          │ Phi-3-mini-128k-instruct.Q8_0.gguf                              │        │ 4061221728  │
+│ QuantFactory          │ Llama3-8B-Chinese-Chat.Q4_K_M.gguf                              │ 8B     │ 4921247296  │
+│ QuantFactory          │ Llama3-8B-Chinese-Chat.Q8_0.gguf                                │ 8B     │ 8541283904  │
+│ bartowski             │ Lexi-Llama-3-8B-Uncensored-Q4_K_M.gguf                          │ 8B     │ 4920733984  │
+│ bartowski             │ Lexi-Llama-3-8B-Uncensored-Q8_0.gguf                            │ 8B     │ 8540770592  │
+│ bartowski             │ wavecoder-ultra-1.1-6.7b-Q4_K_M.gguf                            │ 6.7B   │ 4081561568  │
+│ bartowski             │ Phi-3.1-mini-4k-instruct-Q8_0.gguf                              │        │ 4061222112  │
+│ bartowski             │ wavecoder-ultra-1.1-6.7b-Q8_0.gguf                              │ 6.7B   │ 7161716992  │
+│ bartowski             │ Llama-3-8B-LexiFun-Uncensored-V1-Q4_K_M.gguf                    │ 8B     │ 4920733984  │
+│ bartowski             │ Llama-3-8B-LexiFun-Uncensored-V1-Q8_0.gguf                      │ 8B     │ 8540770592  │
+│ bartowski             │ OpenBioLLM-Llama3-8B-Q4_K_M.gguf                                │ 8B     │ 4920733536  │
+│ bartowski             │ OpenBioLLM-Llama3-8B-Q8_0.gguf                                  │ 8B     │ 8540770144  │
+│ bartowski             │ starcoder2-15b-instruct-v0.1-Q4_K_M.gguf                        │ 15B    │ 9860188864  │
+│ bartowski             │ starcoder2-15b-instruct-v0.1-Q8_0.gguf                          │ 15B    │ 16965110464 │
+│ bartowski             │ NPC-LLM-3_8B-Q4_K_M.gguf                                        │ 8B     │ 2393231360  │
+│ bartowski             │ NPC-LLM-3_8B-Q8_0.gguf                                          │ 8B     │ 4061221376  │
+│ FallenMerick          │ Smart-Lemon-Cookie-7B-Q4_K_M.gguf                               │ 7B     │ 4368439424  │
+│ FallenMerick          │ Smart-Lemon-Cookie-7B-Q8_0.gguf                                 │ 7B     │ 7695857760  │
+│ bartowski             │ Llama-3-8B-LexiFun-Uncensored-V1-Q4_K_M.gguf                    │ 8B     │ 4920734336  │
+│ bartowski             │ Llama-3-8B-LexiFun-Uncensored-V1-Q8_0.gguf                      │ 8B     │ 8540770944  │
+│ bartowski             │ Scarlett-Llama-3-8B-v1.0-Q4_K_M.gguf                            │ 8B     │ 4920734208  │
+│ bartowski             │ Scarlett-Llama-3-8B-v1.0-Q8_0.gguf                              │ 8B     │ 8540770816  │
+│ bartowski             │ Awanllm-Llama-3-8B-Instruct-ORPO-v0.1-Q4_K_M.gguf               │ 8B     │ 4920734592  │
+│ bartowski             │ Awanllm-Llama-3-8B-Instruct-ORPO-v0.1-Q8_0.gguf                 │ 8B     │ 8540771200  │
+│ bartowski             │ ChatQA-1.5-8B-Q4_K_M.gguf                                       │ 8B     │ 4920734240  │
+│ bartowski             │ ChatQA-1.5-8B-Q8_0.gguf                                         │ 8B     │ 8540770848  │
+│ bartowski             │ Einstein-v6.1-Llama3-8B-Q4_K_M.gguf                             │ 8B     │ 4920756992  │
+│ bartowski             │ Einstein-v6.1-Llama3-8B-Q8_0.gguf                               │ 8B     │ 8540805760  │
+│ lmstudio-community    │ Meta-Llama-3-8B-Instruct-Q4_K_M.gguf                            │ 8B     │ 4920734272  │
+│ lmstudio-community    │ Meta-Llama-3-8B-Instruct-Q8_0.gguf                              │ 8B     │ 8540770880  │
+│ bartowski             │ Llama-3-8B-Instruct-Gradient-1048k-Q4_K_M.gguf                  │ 8B     │ 4920734304  │
+│ bartowski             │ Llama-3-8B-Instruct-Gradient-1048k-Q8_0.gguf                    │ 8B     │ 8540770912  │
+│ bartowski             │ Llama-3-8B-Instruct-262k-Q4_K_M.gguf                            │ 8B     │ 4920734272  │
+│ bartowski             │ Llama-3-8B-Instruct-262k-Q8_0.gguf                              │ 8B     │ 8540770880  │
+│ QuantFactory          │ Meta-Llama-3-70B-Instruct-v2.Q4_K_M.gguf                        │ 70B    │ 42520906208 │
+│ NexaAIDev             │ octopus-v2-Q4_K_M.gguf                                          │        │ 1630300736  │
+│ NexaAIDev             │ octopus-v2-Q8_0.gguf                                            │        │ 2669118688  │
+│ bartowski             │ JSL-MedLlama-3-8B-v2.0-Q4_K_M.gguf                              │ 8B     │ 4920733856  │
+│ bartowski             │ JSL-MedLlama-3-8B-v2.0-Q8_0.gguf                                │ 8B     │ 8540770464  │
+│ bartowski             │ llama-3-neural-chat-v2.2-8B-Q4_K_M.gguf                         │ 8B     │ 4920734560  │
+│ bartowski             │ llama-3-neural-chat-v2.2-8B-Q8_0.gguf                           │ 8B     │ 8540771168  │
+│ leafspark             │ llama-3-8b-instruct-gradient-4194k.Q4_K_M.gguf                  │ 8B     │ 4920733984  │
+│ leafspark             │ llama-3-8b-instruct-gradient-4194k.Q8_0.gguf                    │ 8B     │ 8540770592  │
+│ bartowski             │ bagel-8b-v1.0-Q4_K_M.gguf                                       │ 8B     │ 4920734272  │
+│ bartowski             │ bagel-8b-v1.0-Q8_0.gguf                                         │ 8B     │ 8540770880  │
+│ bartowski             │ llama-3-cat-8b-instruct-v1-Q4_K_M.gguf                          │ 8B     │ 4920734272  │
+│ bartowski             │ llama-3-cat-8b-instruct-v1-Q8_0.gguf                            │ 8B     │ 8540770880  │
+│ bartowski             │ LLaMA3-iterative-DPO-final-Q4_K_M.gguf                          │        │ 4920734272  │
+│ bartowski             │ LLaMA3-iterative-DPO-final-Q8_0.gguf                            │        │ 8540770880  │
+│ bartowski             │ Hermes-2-Theta-Llama-3-8B-Q4_K_M.gguf                           │ 8B     │ 4920733984  │
+│ bartowski             │ Hermes-2-Theta-Llama-3-8B-Q8_0.gguf                             │ 8B     │ 8540770592  │
+│ bartowski             │ Quintellect-10.7B-Q4_K_M.gguf                                   │ 10.7B  │ 6461668192  │
+│ bartowski             │ Quintellect-10.7B-Q8_0.gguf                                     │ 10.7B  │ 11404155744 │
+│ bartowski             │ dolphin-2.9.1-yi-1.5-9b-Q4_K_M.gguf                             │ 9B     │ 5328957824  │
+│ bartowski             │ dolphin-2.9.1-yi-1.5-9b-Q8_0.gguf                               │ 9B     │ 9383915904  │
+│ bartowski             │ granite-20b-code-instruct-Q4_K_M.gguf                           │ 20B    │ 12820208544 │
+│ bartowski             │ granite-20b-code-instruct-Q8_0.gguf                             │ 20B    │ 21481184160 │
+│ bartowski             │ Phi-3-medium-4k-instruct-Q4_K_M.gguf                            │        │ 8566821248  │
+│ bartowski             │ Phi-3-medium-4k-instruct-Q8_0.gguf                              │        │ 14834712448 │
+│ bartowski             │ Phi-3-medium-128k-instruct-Q4_K_M.gguf                          │        │ 8566821952  │
+│ bartowski             │ Phi-3-medium-128k-instruct-Q8_0.gguf                            │        │ 14834713152 │
+│ MaziyarPanahi         │ Mistral-7B-Instruct-v0.3.Q4_K_M.gguf                            │ 7B     │ 4372811936  │
+│ MaziyarPanahi         │ Mistral-7B-Instruct-v0.3.Q8_0.gguf                              │ 7B     │ 7702565024  │
+│ bartowski             │ aya-23-8B-Q4_K_M.gguf                                           │ 8B     │ 5056982144  │
+│ bartowski             │ aya-23-8B-Q8_0.gguf                                             │ 8B     │ 8541072512  │
+│ cognitivecomputations │ dolphin-2.9.2-qwen2-7b-Q4_K_M.gguf                              │ 7B     │ 4683071200  │
+│ cognitivecomputations │ dolphin-2.9.2-qwen2-7b-Q8_0.gguf                                │ 7B     │ 8098522848  │
+│ bartowski             │ CodeLlama-7B-KStack-Q4_K_M.gguf                                 │ 7B     │ 4081095936  │
+│ bartowski             │ CodeLlama-7B-KStack-Q8_0.gguf                                   │ 7B     │ 7161230080  │
+│ bartowski             │ Llama-3-Hercules-5.1-8B-Q4_K_M.gguf                             │ 8B     │ 4920733888  │
+│ bartowski             │ Llama-3-Hercules-5.1-8B-Q8_0.gguf                               │ 8B     │ 8540770496  │
+│ bartowski             │ Codestral-22B-v0.1-Q4_K_M.gguf                                  │ 22B    │ 13341237600 │
+│ bartowski             │ Codestral-22B-v0.1-Q8_0.gguf                                    │ 22B    │ 23640547680 │
+│ SanctumAI             │ granite-8b-code-instruct.Q4_K_M.gguf                            │ 8B     │ 4882857152  │
+│ SanctumAI             │ granite-8b-code-instruct.Q8_0.gguf                              │ 8B     │ 8565521600  │
+│ SanctumAI             │ granite-3b-code-instruct.Q4_K_M.gguf                            │ 3B     │ 2132498112  │
+│ SanctumAI             │ granite-3b-code-instruct.Q8_0.gguf                              │ 3B     │ 3705525952  │
+│ grimjim               │ kukulemon-v3-soul_mix-32k-7B.Q4_K_M.gguf                        │ 7B     │ 4368439072  │
+│ grimjim               │ kukulemon-v3-soul_mix-32k-7B.Q8_0.gguf                          │ 7B     │ 7695857440  │
+│ grimjim               │ Llama-3-Luminurse-v0.1-OAS-8B.Q4_K_M.gguf                       │ 8B     │ 4920734016  │
+│ grimjim               │ Llama-3-Luminurse-v0.1-OAS-8B.Q8_0.gguf                         │ 8B     │ 8540770624  │
+│ Qwen                  │ qwen2-7b-instruct-q4_k_m.gguf                                   │ 7B     │ 4683071264  │
+│ Qwen                  │ qwen2-7b-instruct-q8_0.gguf                                     │ 7B     │ 8098522912  │
+│ legraphista           │ Qwen2-1.5B-Instruct.Q8_0.gguf                                   │ 1.5B   │ 1646570080  │
+│ Qwen                  │ qwen2-1_5b-instruct-q4_k_m.gguf                                 │ 1.5B   │ 986045824   │
+│ Qwen                  │ qwen2-1_5b-instruct-q8_0.gguf                                   │ 1.5B   │ 1646570368  │
+│ bartowski             │ Qwen2-7B-Instruct-deccp-Q4_K_M.gguf                             │ 7B     │ 4683071296  │
+│ bartowski             │ Qwen2-7B-Instruct-deccp-Q8_0.gguf                               │ 7B     │ 8098522944  │
+│ QuantFactory          │ deepseek-math-7b-instruct.Q4_K_M.gguf                           │ 7B     │ 4223358528  │
+│ QuantFactory          │ deepseek-math-7b-instruct.Q8_0.gguf                             │ 7B     │ 7346984512  │
+│ QuantFactory          │ Qwen2-0.5B.Q4_K_M.gguf                                          │ 0.5B   │ 397804960   │
+│ QuantFactory          │ Qwen2-0.5B.Q8_0.gguf                                            │ 0.5B   │ 531065248   │
+│ Qwen                  │ qwen2-57b-a14b-instruct-q4_k_m.gguf                             │ 57B    │ 34853272896 │
+│ supernovaburn         │ Llama3-8b-chinese-Uncensored-Q4_K_M.gguf                        │ 8B     │ 4920734048  │
+│ supernovaburn         │ Llama3-8b-chinese-Uncensored-v0.1-q8_0.gguf                     │ 8B     │ 8540770624  │
+│ bartowski             │ MadWizard-SFT-v2-Mistral-7b-v0.3-Q4_K_M.gguf                    │ 7B     │ 4372823232  │
+│ bartowski             │ MadWizard-SFT-v2-Mistral-7b-v0.3-Q8_0.gguf                      │ 7B     │ 7702582400  │
+│ bartowski             │ DeepSeek-Coder-V2-Lite-Base-Q4_K_M.gguf                         │        │ 10364416768 │
+│ bartowski             │ DeepSeek-Coder-V2-Lite-Base-Q8_0.gguf                           │        │ 16702518016 │
+│ legraphista           │ DeepSeek-Coder-V2-Lite-Base.Q8_0.gguf                           │        │ 16702517728 │
+│ bartowski             │ Replete-Coder-Qwen-1.5b-Q4_K_M.gguf                             │ 1.5B   │ 986045824   │
+│ bartowski             │ Replete-Coder-Qwen-1.5b-Q8_0.gguf                               │ 1.5B   │ 1646570368  │
+│ backyardai            │ L3-8B-Stheno-v3.3-32K.Q4_K_M.gguf                               │ 8B     │ 4920734112  │
+│ backyardai            │ L3-8B-Stheno-v3.3-32K.Q8_0.gguf                                 │ 8B     │ 8540770720  │
+│ bartowski             │ dolphin-2.9.3-Yi-1.5-34B-32k-Q4_K_M.gguf                        │ 34B    │ 20658711264 │
+│ bartowski             │ dolphin-2.9.3-Yi-1.5-34B-32k-Q8_0.gguf                          │ 34B    │ 36542282464 │
+│ bartowski             │ dolphin-2.9.3-mistral-7B-32k-Q4_K_M.gguf                        │ 7B     │ 4372823296  │
+│ bartowski             │ dolphin-2.9.3-mistral-7B-32k-Q8_0.gguf                          │ 7B     │ 7702582464  │
+│ legraphista           │ gemma-2-9b-it.Q8_0.gguf                                         │ 9B     │ 9827149408  │
+│ legraphista           │ gemma-2-27b-it.Q8_0.gguf                                        │ 27B    │ 28937387776 │
+│ legraphista           │ llm-compiler-7b-ftd.Q8_0.gguf                                   │ 7B     │ 7161089920  │
+│ bartowski             │ L3-8B-Lunaris-v1-Q4_K_M.gguf                                    │ 8B     │ 4920734240  │
+│ bartowski             │ L3-8B-Lunaris-v1-Q8_0.gguf                                      │ 8B     │ 8540770848  │
+│ legraphista           │ Gemma-2-9B-It-SPPO-Iter3.Q8_0.gguf                              │ 9B     │ 9827149472  │
+│ second-state          │ Gemma-2-9B-Chinese-Chat-Q4_K_M.gguf                             │ 9B     │ 5761058112  │
+│ second-state          │ Gemma-2-9B-Chinese-Chat-Q8_0.gguf                               │ 9B     │ 9827149120  │
+│ bartowski             │ Phi-3.1-mini-4k-instruct-Q4_K_M.gguf                            │        │ 2393232096  │
+│ second-state          │ internlm2_5-7b-chat-Q4_K_M.gguf                                 │ 7B     │ 4712768320  │
+│ second-state          │ internlm2_5-7b-chat-Q8_0.gguf                                   │ 7B     │ 8224240448  │
+│ bartowski             │ Llama-3-Perky-Pat-Instruct-8B-Q4_K_M.gguf                       │ 8B     │ 4920734272  │
+│ bartowski             │ Llama-3-Perky-Pat-Instruct-8B-Q8_0.gguf                         │ 8B     │ 8540770880  │
+│ bartowski             │ Llama3-8B-Instruct-Replete-Adapted-Q4_K_M.gguf                  │ 8B     │ 4920734336  │
+│ bartowski             │ Llama3-8B-Instruct-Replete-Adapted-Q8_0.gguf                    │ 8B     │ 8540770944  │
+│ bartowski             │ Smegmma-Deluxe-9B-v1-Q4_K_M.gguf                                │ 9B     │ 5761058720  │
+│ bartowski             │ Smegmma-Deluxe-9B-v1-Q8_0.gguf                                  │ 9B     │ 9827149728  │
+│ grimjim               │ llama-3-Nephilim-v2.1-8B.Q4_K_M.gguf                            │ 8B     │ 4920733952  │
+│ grimjim               │ llama-3-Nephilim-v2.1-8B.Q8_0.gguf                              │ 8B     │ 8540770560  │
+│ grimjim               │ kalomaze_qwen2-7b-magpie300k_filtered_epoch2.Q4_K_M.gguf        │ 7B     │ 4683070976  │
+│ grimjim               │ kalomaze_qwen2-7b-magpie300k_filtered_epoch2.Q8_0.gguf          │ 7B     │ 8098522624  │
+│ bartowski             │ c4ai-command-r-v01-Q4_K_M.gguf                                  │        │ 21527041856 │
+│ bartowski             │ Qwen2.5-Coder-32B-Instruct-Q8_0.gguf                            │ 32B    │ 34820885184 │
+│ bartowski             │ Qwen2.5-Coder-3B-Instruct-Q8_0.gguf                             │ 3B     │ 3285476608  │
+│ bartowski             │ sarvam-1-Q8_0.gguf                                              │ 2.5B   │ 2685327200  │
+│ bartowski             │ Qwen2.5-Coder-14B-Instruct-Q8_0.gguf                            │ 14B    │ 15701598432 │
+│ bartowski             │ Qwen2.5-Coder-0.5B-Instruct-Q8_0.gguf                           │ 0.5B   │ 531068576   │
+│ bartowski             │ Llama-3.3-70B-Instruct-Q4_0.gguf                                │ 70B    │ 40116538336 │
+╰───────────────────────┴─────────────────────────────────────────────────────────────────┴────────┴─────────────╯
