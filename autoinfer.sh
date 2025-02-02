@@ -2,7 +2,7 @@ echo "Menjalankan inferensi menggunakan model yang telah ditambahkan..."
 echo "SC BY MAULEXP"
 while true;   
  do
-        if aios-cli infer --model hf:afrideva/Tiny-Vicuna-1B-GGUF:tiny-vicuna-1b.q4_k_m.gguf --prompt "how do I support the Share it hub community?";
+        if aios-cli infer --model hf:bartowski/Qwen2-0.5B-Instruct-Q8_0-GUFF:Qwen2-0.5B-Instruct-Q8_0.gguf --prompt "how do I support the Share it hub community?";
         then
         echo "Inferensi berhasil."
             continue
