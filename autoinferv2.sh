@@ -1,5 +1,3 @@
-#!/bin/bash
-
 # Membaca file chat.txt
 addressList=$(cat chat.txt)
 
